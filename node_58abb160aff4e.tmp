@@ -1,0 +1,47 @@
+function pigLatin(test) {
+    test = test.toLowerCase()
+    let vowels = ["a", "e", "i", "o", "u"];
+    let vowelIndex = 0;
+  
+    if (vowels.includes(test[0])) {
+      return test + "ay";
+    } else {
+      for (let char of test) {
+       if (vowels.includes(char)) {
+         vowelIndex = test.indexOf(char);
+        //  console.log(vowelIndex);
+        //  console.log(test);
+          break;
+        } 
+      }
+      return (test.slice(vowelIndex)) + (test.slice(0, vowelIndex)+"ay");
+    }
+  }
+
+  console.log(pigLatin('football'))
+  
+  
+
+
+let sampleString = 'pig Latin';
+function pigLatin(str) {  
+    let wordsArray = str.split('');
+    console.log(wordsArray);
+    wordsArray.forEach((word, index) => {
+        let lettersArray = word.split('');
+        while(lettersArray[0] !== 'a' && lettersArray[0] !== 'e' && lettersArray[0] !== 'i' && lettersArray[0] !== 'o' && lettersArray[0] !== 'u') {
+            lettersArray.push(lettersArray[0]);
+            lettersArray.shift();
+        }
+        console.log(word,index);
+        lettersArray.push('ay');
+        console.log(lettersArray);
+    })
+}
+
+
+// }
+
+//   }
+
+//   pigLatin(sampleString)
